@@ -1,0 +1,31 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.theluckystrike/appointment",
+  "description": "Read your .ics calendar for appointments, free-busy windows and conflicts.",
+  "version": "0.20.0",
+  "repository": {
+    "url": "https://github.com/theluckystrike/mcp-servers",
+    "source": "github",
+    "subfolder": "servers/calendar"
+  },
+  "websiteUrl": "https://mcp.zovo.one/buy/calendar",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.20.0/calendar.mcpb",
+      "version": "0.20.0",
+      "fileSha256": "c27543fb85f5933a8f6d4c34520838acc60a7ebcda9517ac80850f2ac6e4953f",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "MCP_LICENSE_KEY",
+          "description": "Optional Pro license key (MCPL1....). Verified offline.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
