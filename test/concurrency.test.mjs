@@ -60,7 +60,7 @@ function client(env) {
 
 test.skip(`two processes, one data dir: ${2 * N} concurrent imports all persist`, async () => {
   // Pro, so the free two-calendar cap is not what is being measured here.
-  const key = "";
+  const key = execFileSync(process.execPath, [join(REPO, "scripts", "sign-license.mjs"), "calendar"], { encoding: "utf8" }).trim();
   const dir = mkdtempSync(join(tmpdir(), "mcp-cal-conc-"));
   const dataHome = join(dir, "data");
   const env = { XDG_DATA_HOME: dataHome, XDG_CONFIG_HOME: join(dir, "cfg"), MCP_LICENSE_KEY: key };
@@ -108,7 +108,7 @@ test.skip(`two processes, one data dir: ${2 * N} concurrent imports all persist`
 });
 
 test.skip("concurrent forget and import do not corrupt the index", async () => {
-  const key = "";
+  const key = execFileSync(process.execPath, [join(REPO, "scripts", "sign-license.mjs"), "calendar"], { encoding: "utf8" }).trim();
   const dir = mkdtempSync(join(tmpdir(), "mcp-cal-conc2-"));
   const dataHome = join(dir, "data");
   const env = { XDG_DATA_HOME: dataHome, XDG_CONFIG_HOME: join(dir, "cfg"), MCP_LICENSE_KEY: key };
