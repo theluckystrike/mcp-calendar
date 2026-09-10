@@ -1,13 +1,45 @@
 # mcp-calendar
 
+<!-- mirror-seo:start -->
+
+**MCP server for reading ics calendars, free busy time and scheduling conflicts.** Read .ics calendars: events, free and busy, conflicts, exports.
+
+Works with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine, or hosted with no install.
+
+## Install
+
+**Hosted, nothing to install.** Point an MCP client at `https://mcp.zovo.one/mcp/calendar` over streamable-http and send `Authorization: Bearer <token>`, where the token is a Pro key or a free anonymous one from <https://mcp.zovo.one/mcp/token>.
+
+**Claude Desktop, one click.** Download `calendar.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it.
+
+**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.
+
+```sh
+git clone https://github.com/theluckystrike/mcp-calendar.git
+cd mcp-calendar
+npm install && npm run build
+```
+
+Then point your client at the built entry point:
+
+```json
+{
+  "mcpServers": {
+    "calendar": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-calendar/dist/index.js"]
+    }
+  }
+}
+```
+
+> `@theluckystrike/mcp-calendar` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-calendar` command will fail. The three paths above are the working ones and each is exercised by CI.
+
 ![calendar demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-calendar.gif)
-
-**One-click install:** download `calendar.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it in Claude Desktop.
-
-**Hosted endpoint (no install):** `https://mcp.zovo.one/mcp/calendar` (streamable-http; send `Authorization: Bearer <Pro key or anonymous token from https://mcp.zovo.one/mcp/token>`).
 
 Read-only mirror of [mcp-servers/servers/calendar](https://github.com/theluckystrike/mcp-servers/tree/main/servers/calendar). See [MIRROR.md](MIRROR.md).
 
+<!-- mirror-seo:end -->
 
 Your calendar app can show you next Tuesday. It cannot tell you where your week actually went, which two things you
 said yes to at the same time, or how many billable hours last month's meetings were worth. This server reads the
