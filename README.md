@@ -212,3 +212,5 @@ It writes `.ics` files with `event_export`, which you can import anywhere. It ne
 
 **How big a file can it read?**
 5 MB, which is a few thousand events. Export a narrower date range if a full history is bigger than that.
+
+**Listed on the [AI Product Index](https://index.percall.dev/l/zovo-calendar.html)** — live remote endpoint at [mcp.zovo.one/s/calendar](https://mcp.zovo.one/s/calendar), free tier, no signup.
